@@ -1,0 +1,12 @@
+.f-view{
+	width: 94%;
+	height: 60px;
+	margin-left: 3%;
+	overflow: hidden;
+	margin-bottom: 20rpx;
+	border: 1px solid #000;
+}
+.text-two{
+	display: inline-block;
+
+}

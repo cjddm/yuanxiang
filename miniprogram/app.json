@@ -1,0 +1,45 @@
+{
+	"pages": [
+		"pages/me/me",
+
+		"pages/collect/collect",
+		"pages/index/index",
+		"pages/detail/detail",
+		"pages/databaseGuide/databaseGuide",
+		"pages/addFunction/addFunction",
+		"pages/deployFunctions/deployFunctions",
+		"pages/chooseLib/chooseLib"
+	],
+	"tabBar": {
+		"selectedColor": "#5697c6",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "享遇",
+				"iconPath": "/images/tabbar/read.png",
+				"selectedIconPath": "/images/tabbar/read-t.png"
+			},
+			{
+				"pagePath": "pages/collect/collect",
+				"text": "收藏",
+				"iconPath": "/images/tabbar/collect.png",
+				"selectedIconPath": "/images/tabbar/collect-t.png"
+			},
+			{
+				"pagePath": "pages/me/me",
+				"text": "我的",
+				"iconPath": "/images/tabbar/me.png",
+				"selectedIconPath": "/images/tabbar/me-t.png"
+			}
+		]
+	},
+	"window": {
+		"backgroundColor": "#F6F6F6",
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#F6F6F6",
+		"navigationBarTitleText": "鸢享",
+		"navigationBarTextStyle": "black"
+	},
+	"sitemapLocation": "sitemap.json",
+	"style": "v2"
+}

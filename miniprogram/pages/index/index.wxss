@@ -1,0 +1,160 @@
+
+.xin{
+	padding:0 10px;
+}
+.xin .title{
+	font-size: 14px;
+	color: #444;
+	margin-top: 14rpx;
+}
+.xin .border{
+	height: 0;
+	border-top: 1px solid #ccc;
+	margin-top: 20px;
+	width:20%;
+}
+.xin-list{
+	width: 100%;
+	position: relative;
+}
+.xin-list .single:nth-of-type(1){
+	z-index: 10;
+}
+/* .xin-list .single:nth-of-type(2){
+	position: absolute;
+	transform: translateX(20px) scale(0.8);
+	
+	transform-origin: 100% 50% 0; 
+	top: 0;
+	z-index: -1;
+}
+.xin-list .single:nth-of-type(3){
+	position: absolute;
+	transform: translateX(40px) scale(0.6);
+	
+	transform-origin: 100% 50% 0; 
+	
+	top: 0;
+	z-index: -2;
+} 
+*/
+.xin-list{
+	margin-left:48rpx;
+}
+/* 未加载时的进入动画 */
+.xin-list .single:nth-of-type(n+4){
+	transform:translateX(20px) scale(0.8);
+	transform-origin: 100% 50% 0; 
+}
+.xin-list .single{
+	transition: all 1s;
+	overflow: hidden;
+	border-radius: 1px;
+	margin-top:15px;
+	width: calc(100% - 60px);
+	height: calc(100vh - 150px - 3vh);
+	background: #fff;
+	position: absolute;
+	box-shadow: 3px 3px 10px 0px #a0a0a0;
+}
+/* .xin-shou{
+	writing-mode: vertical-lr;
+	font-size: 15px;
+	float: left;
+	padding:10px 2px 10px 2px;
+	letter-spacing:4px;
+	margin:0 15px;
+	position: relative;
+	top: 50%;
+	max-height: 80%;
+	overflow: hidden;
+	transform: translateY(-50%);
+	border: 1px solid #999;
+} */
+.xin-body{
+	text-indent: 2em;
+	letter-spacing:0.08em;
+	/* writing-mode:vertical-lr; */
+	max-width:76%;
+	line-height:6vw;
+	float: left;
+	/* height: 70%; */
+	max-height: 70%;
+	vertical-align: middle;
+	position: relative;
+	top: 47%;
+	left: 12%;
+	transform: translateY(-50%);
+	text-align:justify;
+	/* 多文本显示隐藏 */
+	overflow:hidden;
+	text-overflow:ellipsis;
+ 	display:-webkit-box;
+ 	-webkit-line-clamp:13; 
+ 	-webkit-box-orient:vertical;
+}
+
+/* 弹出卡片的样式 */
+.modaDlg{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	/* top: 2%; */
+	/* bottom: 1%; */
+	/* left: 4%; */
+	z-index: 999;
+	background-color: #fff;
+	border-radius: 2px;
+	/* box-shadow: 3px 3px 10px 0px #a0a0a0; */
+
+	padding:0 0 10rpx 0;
+}
+.md-son{
+	text-indent: 2em;
+	letter-spacing:0.02em;
+	line-height:7vw;
+	margin: 46rpx 66rpx 0;
+	text-align: justify;
+}
+
+.mask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: #fff;
+	opacity: 0.7;
+	z-index: 900;
+}
+.shenglue{
+	float: left;
+	height: 70%;
+	line-height:25px;
+	width: 25px;
+	text-align:justify;
+	writing-mode:vertical-lr;
+	margin-top: 23%;
+	letter-spacing:10px;
+}
+.xin-xie{
+	clear: both;
+	font-size: 12px;
+	position: absolute;
+	right: 15px;
+	bottom: 10px;
+}
+.xin-collect{
+	position: absolute;
+	right: 40rpx;
+	bottom: 70rpx;
+}
+.xinc-text{
+	font-size: 13px;
+	display: inline-block;
+	margin-right: 2px;
+}
+.xin-collect image{
+	width: 30rpx;
+	height: 30rpx;
+	display: inline-block;
+	vertical-align: middle;
+}

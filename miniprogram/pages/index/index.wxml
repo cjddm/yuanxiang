@@ -1,0 +1,42 @@
+	<!-- 弹出卡牌的一个背景遮罩层 -->
+	<view class="mask" wx:if="{{showModal}}" catchtouchmove="preventTouchMove"></view>
+	
+	<!-- 弹出卡片 -->
+	<view class="modaDlg" wx:if="{{showModal}}" bindtap="submitOff">
+		<scroll-view scroll-y="true" style="height:{{bbb}}px">
+			<view class="md-son" id="productServe" >
+			{{poppup.msg}}
+			</view>
+		</scroll-view>
+	</view>
+	
+
+	<!-- -------------------------- -->
+<view class="xin">
+		
+	<view class="title">蓦然回首</view>
+	<view class="border"></view>
+	<view class="xin-list"
+	 			bindtouchend="moveItem" 	
+				bindtouchstart="moveStart">
+		<block wx:for="{{xinList}}"
+				   wx:key="key"     	
+					 wx:for-index="idx">
+		
+			<view class="single" 
+						style="opacity:{{item.display}};transform: translateX({{item.slateX}}) scale({{item.scale}});z-index:{{item.zIndex}};transform-origin: 100% 50% 0;margin-top:{{item.mgtop}};">
+						<!-- {{item.style}} -->
+				<!-- 基础卡片 -->
+				<view class="xin-body" bindtap="submitOn">
+					{{item.msg}}
+				</view>					
+				<!-- <view class="shenglue">···</view> -->
+				<view class="xin-collect" bindtap="changCollect" data-id="{{item.id}}">
+					<view class="xinc-text">{{iscollect ? '已收藏':'收藏'}}</view>
+					<image src="{{iscollect ? '../../images/tabbar/collect-sh.png':'../../images/tabbar/collect.png'}}"></image>
+				</view>
+				<view class="xin-xie">By {{item.from}}</view>
+			</view>
+		</block>
+	</view>
+</view>

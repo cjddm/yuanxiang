@@ -1,0 +1,21 @@
+.xin-collect{
+	/* position: absolute; */
+	/* right: 40rpx;
+	top: 10rpx;
+	bottom: 70rpx; */
+	float: right;
+	margin-right: 5%;
+	margin-top: 30rpx;
+
+}
+.xinc-text{
+	font-size: 13px;
+	display: inline-block;
+	margin-right: 2px;
+}
+.xin-collect image{
+	width: 30rpx;
+	height: 30rpx;
+	display: inline-block;
+	vertical-align: middle;
+}

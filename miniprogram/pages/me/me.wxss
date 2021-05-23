@@ -1,0 +1,5 @@
+.huoqu{
+	width: 30%;
+	height: 40rpx;
+	background-color: pink;
+}

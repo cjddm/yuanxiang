@@ -1,0 +1,9 @@
+
+<view>
+	<view>{{detail.from}}</view>
+	<view>{{detail.msg}}</view>
+</view>
+<view class="xin-collect" bindtap="changCollect" data-id="{{item.id}}">
+					<view class="xinc-text">{{shocang ? '已收藏':'收藏'}}</view>
+					<image src="{{shocangurl}}"></image>
+</view>
