@@ -1,9 +1,13 @@
-
-<view>
-	<view>{{detail.from}}</view>
-	<view>{{detail.msg}}</view>
-</view>
-<view class="xin-collect" bindtap="changCollect" data-id="{{item.id}}">
-					<view class="xinc-text">{{shocang ? '已收藏':'收藏'}}</view>
-					<image src="{{shocangurl}}"></image>
+<view class="v-f">
+	<view class="v-zero">
+		<view class="v-one">{{detail.to}}</view>
+		<view class="v-two">{{detail.msg}}</view>
+	</view>
+	<view class="and">
+		<view class="xin-collect" bindtap="changCollect" data-id="{{item.id}}" data-item="{{detail}}">
+						<view class="xinc-text">{{shocang ? '已收藏':'收藏'}}</view>
+						<image src="{{shocang ? '../../images/tabbar/collect-sh.png' : '../../images/tabbar/collect.png'}}"></image>
+	</view>
+	<view class="from">by {{detail.from}}</view>
+	</view>
 </view>

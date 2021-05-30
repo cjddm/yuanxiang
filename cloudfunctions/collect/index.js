@@ -1,12 +1,13 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
+const DB= cloud.database().collection("xinList")
 
 cloud.init()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
 	// const wxContext = cloud.getWXContext()
-	return await cloud.database().collection("xinList").doc(event.id)
+	return await DB.doc(event.id)
 	.update({
 		data:{
 			collect:event.collect

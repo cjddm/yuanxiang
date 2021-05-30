@@ -3,15 +3,15 @@
 	padding:0 10px;
 }
 .xin .title{
+	position: absolute;
 	font-size: 14px;
 	color: #444;
-	margin-top: 14rpx;
+	margin-top: 6rpx;
+	margin-left: 6rpx;
 }
 .xin .border{
 	height: 0;
-	border-top: 1px solid #ccc;
 	margin-top: 20px;
-	width:20%;
 }
 .xin-list{
 	width: 100%;
@@ -48,7 +48,7 @@
 }
 .xin-list .single{
 	transition: all 1s;
-	overflow: hidden;
+	/* overflow: hidden; */
 	border-radius: 1px;
 	margin-top:15px;
 	width: calc(100% - 60px);

@@ -1,7 +1,15 @@
-<!--miniprogram/pages/collect/collect.wxml-->
-<block wx:for="{{dataList}}" wx:key="index">
-	<view class="f-view" bindtap="goDetail" data-item="{{item}}">
-		<text class="text-one">{{item.from}}</text>
-		<text class="text-two">{{item.msg}}</text>
-	</view>
-</block>
+<view wx:if="{{ko}}" class="ko">( 啷个还没有收藏撒~ 下拉刷新)</view>
+<view wx:if="{{dl}}" class="ko">( 啷个还没有登陆撒~ 下拉刷新)</view>
+
+<view class="shoucang" bindtap="goDetail" data-index="{{index}}" wx:for="{{dataList}}" wx:key="id">
+  <image class="wing" src="/images/img/wing.png" mode="aspectFit"></image>
+	<image class="wing wing2" src="/images/img/wing2.png" mode="aspectFit"></image>
+ 	<view class="shoucang_card"> 
+			<view class="title">
+					{{item.to}}
+			</view>
+			<view class="author">
+					— {{item.from}}
+			</view>
+ 	</view>
+</view>

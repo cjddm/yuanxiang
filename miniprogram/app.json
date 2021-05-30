@@ -1,14 +1,11 @@
 {
 	"pages": [
-		"pages/me/me",
-
-		"pages/collect/collect",
 		"pages/index/index",
-		"pages/detail/detail",
-		"pages/databaseGuide/databaseGuide",
-		"pages/addFunction/addFunction",
-		"pages/deployFunctions/deployFunctions",
-		"pages/chooseLib/chooseLib"
+		"pages/me/me",
+		"pages/collect/collect",
+		"pages/wd/wd",
+		"pages/write/write",
+		"pages/detail/detail"
 	],
 	"tabBar": {
 		"selectedColor": "#5697c6",

@@ -1,80 +1,109 @@
-// pages/detail/detail.js
+let db=wx.cloud.database();
+const _ =db.command;
+
 let iscollect=false //是否收藏
 let Id=''
-
 Page({
 	data:{
 		detail:'',
-		shocangurl:'../../images/tabbar/collect.png',
-		shocang:false
+		shocang:true,
+		openid:''
 	},
 	// 通过id获取数据库里的指定数据
 	onLoad(options){
-		Id=options.id
-		console.log(Id);
-		wx.cloud.database().collection("xinList")
-		.doc(Id)
-		.get()
-		.then(res=>{
-			console.log("详情页成功",res);
-			iscollect=res.data.collect
-			this.setData({
-				detail:res.data,
-				shocangurl:iscollect?'../../images/tabbar/collect-sh.png':'../../images/tabbar/collect.png',
-				shocang:iscollect?true:false
-			})
-		})
-		.catch(res=>{
-			console.log("详情页失败",res);
+		var msg=JSON.parse(decodeURIComponent(options.message))
+		var opid=JSON.parse(decodeURIComponent(options.openid))
+		this.setData({
+			detail:msg,
+			openid:opid
 		})
 	},
 	 // 收藏
 	 changCollect:function(e){     
-		console.log(Id);
-		if(iscollect==false){
-			this.setData({
-				shocangurl:'../../images/tabbar/collect-sh.png',
-				shocang:true
-			})
-				 wx.showToast({
-					 title: '已收藏',
-				 });	
-				 iscollect=true
-				 wx.cloud.callFunction({
-					 name:"collect",
-					 data:{
-						 id:Id,
-						 collect:iscollect
-					 }
-				 })
-				 .then(res=>{
-					 console.log("改变收藏状态成功",res);
-				 })
-				 .catch(res=>{
-					 console.log("改变收藏状态失败",res);
-				 })
-		}else{
-			this.setData({
-				shocangurl:'../../images/tabbar/collect.png',
-				shocang:false
-			})
-				 wx.showToast({
-					 title: '已取消',
-				 })				
-				 iscollect=false
-				 wx.cloud.callFunction({
-					name:"collect",
-					data:{
-						id:Id,
-						collect:iscollect
-					}
-				})
-				.then(res=>{
-					console.log("改变收藏状态成功",res);
-				})
-				.catch(res=>{
-					console.log("改变收藏状态失败",res);
-				})
-		}
+		 var xinid=this.data.detail._id
+		 var that = this
+		 var openid = this.data.openid
+		 let value = e.currentTarget.dataset.item
+		 db.collection('favorite').where({
+							 userid: openid
+					})
+					.get({
+							 success: res => {
+												 var xlistid = res.data[0].xinlistid
+												 // 判断收藏列表数组是否包含该文章id
+												 let temp = new Set(xlistid)
+												 console.log("temp", temp);
+												 let panduan = temp.has(xinid)
+
+												 if (panduan == true) {
+															// 取消收藏,删除数据
+															console.log("删除");
+															db.collection('favorite')
+																	 .where({
+																				userid: openid
+																	 })
+																	 .update({
+																				data: {
+																						 xinlistid: _.pull(xinid),
+																						 xinlist: _.pull(value)
+																				}
+																	 })
+																	 .then(res=>{
+																			wx.showToast({
+																				title: '已取消',
+																				icon: "none"
+																			 });
+																			 that.setData({
+																				 shocang:false
+																			 })
+																	 })
+																	 .catch(err=>{
+																		 wx.showToast({
+																			 title: '数据错误',
+																			 icon:"error",
+																			 duration:1000
+																		 })
+																	 })
+														
+												 } else if (panduan == false) {
+															console.log("添加");
+															db.collection('favorite')
+																	 .where({
+																				userid: openid
+																	 })
+																	 .update({
+																				data: {
+																						 xinlistid: _.push({
+																									each:[xinid],
+																									position:0
+																						 }),
+																						 xinlist: _.push({
+																									each:[value],
+																									position:0
+																						 })
+																				}
+																	 })
+																	 .then(res => {
+																				wx.showToast({
+																						 title: '已收藏',
+																						 duration:1000
+																				});
+																				that.setData({
+																					shocang:true
+																				})
+																	 })
+																	 .catch(err => {
+																				wx.showToast({
+																						 title: "数据错误",
+																						 icon: 'none',
+																						 duration: 1000
+																				})
+																	 })
+												 }
+							 },
+							 fail:err=>{
+								 console.log("错误",err);
+							 }
+					})
 },
 })

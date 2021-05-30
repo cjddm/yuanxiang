@@ -1,0 +1,15 @@
+<!--pages/write/write.wxml-->
+<!-- 用户创作页面 -->
+<view class="v-father">
+    <input type="text" maxlength="12" class="text" placeholder="标题 最多12个字"
+    bindinput ="userNameInput"/>
+
+    <textarea class="text" maxlength="240" placeholder="内容 "
+     bindinput="passWdInput"/>
+
+   <view class="b-zero">
+    <button size="mini" class="btn b-one" bindtap="loginBtnClicktwo">私密</button>
+  	<button size="mini" class="btn b-two" bindtap="loginBtnClick">公开</button>
+   </view>
+
+</view>

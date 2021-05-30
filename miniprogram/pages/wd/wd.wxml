@@ -1,0 +1,8 @@
+<block class="v-bac" wx:for="{{myxin}}">
+	<view class="v-zero">
+		<view class="v-three">{{item.gx}}</view>
+		<view class="v-one">{{item.to}}</view>
+		<view class="v-two">{{item.msg}}</view>
+		<image src="../../images/tabbar/ljx.png" class="sc" bindtap="delete" data-item="{{item}}"></image>
+	</view>
+</block>

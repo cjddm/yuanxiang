@@ -1,21 +1,40 @@
-.xin-collect{
-	/* position: absolute; */
-	/* right: 40rpx;
-	top: 10rpx;
-	bottom: 70rpx; */
-	float: right;
-	margin-right: 5%;
-	margin-top: 30rpx;
-
+.v-f{
+	width: 94%;
+	margin: 5rpx 3% 0;
+}
+.v-one{
+	font-size: 17px;
+	margin-top: 10rpx;
+	margin-left: 2px;
+}
+.v-zero{
+	margin: 0 7rpx;
+}
+.v-two{
+	margin-top: 22rpx;
+	text-indent: 2em;
+	font-size: 15px;
+	line-height: 7vw;
+	letter-spacing: 0.08em;
+	text-align: justify;
+}
+.and{
+	margin-top: 22px;
+	margin-right: 3%;
+	text-align: right;
 }
 .xinc-text{
-	font-size: 13px;
+	font-size: 14px;
 	display: inline-block;
 	margin-right: 2px;
 }
 .xin-collect image{
-	width: 30rpx;
-	height: 30rpx;
-	display: inline-block;
+	width: 40rpx;
+	height: 40rpx;
 	vertical-align: middle;
+}
+.from{
+	font-size: 14px;
+	margin-top: 3px;
+	margin-right: 2px;
 }

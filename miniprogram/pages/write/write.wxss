@@ -1,0 +1,35 @@
+/* pages/write/write.wxss */
+.v-father{
+	width: 96%;
+	margin:16rpx 2% 0;
+}
+.text{
+	border-radius: 5rpx;
+	border-bottom: 1px solid rgb(170, 170, 170);
+	/* box-shadow: 2px 2px 7px -3px; */
+	padding-left: 5rpx;
+}
+input{
+	height: 4.5vh;
+	margin-top: 24rpx;
+}
+textarea{
+	width: 100%;
+	height: 30vh;
+	margin-top: 65rpx;
+}
+.b-zero{
+	text-align: center;
+}
+.btn{
+	background-color: rgb(11, 158, 11);
+	color: #fff;
+	margin-top: 7vh;
+	display: inline-block;
+}
+.b-one{
+	margin-right: 100rpx;
+}
+.b-two{
+	margin-left: 100rpx;
+}

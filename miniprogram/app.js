@@ -10,14 +10,19 @@ App({
         //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
         //   如不填则使用默认环境（第一个创建的环境）
         env: '1024-7gzn27kk7bf3245f',
-        traceUser: true,
+        traceUser: false,
       })
     }
-
-    this.globalData = {}
   },
-  userData:{
-    openID:'',
+  globalData :{
+    auth: {
+      'scope.userInfo': false
+     },
+    // 是否登录
+    logged:false,
+    userID:'',
+    // 用户收藏
     favoriteList:[]
-  }
+    }
+
 })

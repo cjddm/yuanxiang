@@ -1,0 +1,36 @@
+page{
+	background-color: #f6f6f6;
+}
+.v-zero{
+	width: 90%;
+	margin: 10rpx 5% 43rpx;
+	border: 1rpx solid #e2e1e1;
+	border-radius: 7px;
+	box-shadow: 1px 1px 11px -6px;
+	padding: 26px 0;
+}
+.v-one{
+	margin-top: -19px;
+	margin-left: 8px;
+}
+.v-two{
+	text-indent: 2em;
+	letter-spacing: 0.08em;
+	line-height: 6.9vw;
+	margin: 13px 18px;
+	text-align: justify;
+}
+
+.v-three{
+	float: right;
+	font-size: 28rpx;
+	color: rgb(201, 204, 204);
+	margin-top: -26px;
+	margin-right: 2px;
+}
+.sc{
+	width: 40rpx;
+	height: 40rpx;
+	float: right;
+	margin-right: 5px;
+}

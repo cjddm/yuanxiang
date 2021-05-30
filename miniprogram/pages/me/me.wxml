@@ -1,9 +1,31 @@
-<view class="v-top">
-	<view class="huoqu" bindtap="huoqu">点击获取用户id</view>
-	<view>{{userid}}</view>
+<view class="background"></view>
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
+      <view class="userinfo-avatar" >
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class="nickname">
+        <open-data type="userNickName"></open-data>
+      </view>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}" class="login">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+<view class="mycreatebox">
+  <view class="mycreate" bindtap="write">
+    写作
+  </view>
+  <image class="rightarrow" src="/images/img/rightarrow.png" mode="aspectFit"></image>
 </view>
-<open-data type="userAvatarUrl"></open-data>
-<open-data type="userNickName"></open-data>
-<!-- 需要使用 button 来授权登录 -->
-<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
-<view wx:else>请升级微信版本</view>
+<button bindtap="wd" plain="true" style="border:none;color:#120f0b;font-size:33rpx;font-weight:400;margin-top:10px">我的</button>
+
+<button wx:if="{{pd}}" class="b-one" bindtap="dj" style="margin-top:50%;">登陆</button>
+<button wx:else class="b-two" bindtap="dj" style="margin-top:50%;" disabled="true">已登陆</button>
