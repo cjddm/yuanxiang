@@ -34,3 +34,10 @@ page{
 	float: right;
 	margin-right: 5px;
 }
+.v-five{
+	color: rgb(223, 223, 223);
+	font-size: 27rpx;
+	float: left;
+	margin-left: 1px;
+	margin-top: 8px;
+}

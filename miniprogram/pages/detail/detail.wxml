@@ -7,7 +7,35 @@
 		<view class="xin-collect" bindtap="changCollect" data-id="{{item.id}}" data-item="{{detail}}">
 						<view class="xinc-text">{{shocang ? '已收藏':'收藏'}}</view>
 						<image src="{{shocang ? '../../images/tabbar/collect-sh.png' : '../../images/tabbar/collect.png'}}"></image>
-	</view>
+		</view>
+	<view class="time">{{detail.bdtime}}</view>
 	<view class="from">by {{detail.from}}</view>
 	</view>
 </view>
+
+<!-- 评论模块 -->
+<view class="show" wx:if="{{!focus}}">
+	<image src="../../images/img/pl.png" bindtap="show"  class="plimg"></image>
+</view>
+
+<textarea wx:if="{{focus}}" class="plone" auto-height="true" maxlength="200" placeholder="评论" 
+		bindinput="pl" 
+		adjust-position="true"
+		value="{{pl}}"
+		focus="{{focus}}"
+		>
+</textarea>
+<view class="fxfather" wx:if="{{focus}}">
+	<view  class="fx" bindtap="fx">发送</view>
+</view>
+
+<!-- 评论列表 -->
+<view wx:if="{{empty}}" class="notpl">暂无评论</view>
+<view wx:else class="pllist">
+	<view wx:for="{{pllist}}" class="block">
+		<view class="plname">{{item.name}}</view>
+		<view class="plvalue">{{item.comment}}</view>
+		<view class="pltime">{{item.time}}</view>
+	</view>
+</view>
+

@@ -5,6 +5,7 @@ Page({
 		dataList:[],
 		openid:'',
 		whether:false,
+		username:'',
 		ko:false,//收藏为空
 		dl:false,//登陆情况
 		DL:false,//控制刷新
@@ -24,14 +25,12 @@ Page({
 
 		// 下拉刷新
 		onPullDownRefresh(){
-			console.log("芜湖起飞");
 			if(this.data.DL==true){
 				db.collection('favorite').where({
 					_openid:this.data.openid
 			})
 			.get()
 			.then(res=>{
-				console.log(res,"获取");
 				var list=res.data[0].xinlist
 				this.setData({
 					DL:true
@@ -49,7 +48,6 @@ Page({
 						})
 					}
 				}else{
-					console.log("应该请求");
 					this.setData({
 						ko:true
 					})
@@ -79,11 +77,12 @@ Page({
 						if(res.data.length !=0){
 							if(res.data[0].xinlist==''){
 								this.setData({
-									ko:true
+									ko:true,
 								})
 							};
 							this.setData({
 								dataList:res.data[0].xinlist,
+								username:res.data[0].username,
 								dl:false,
 								DL:true,
 								whether:true
@@ -94,8 +93,6 @@ Page({
 								dl:true,
 							})
 						}
-						this.setData({
-						})
 					})
 					.catch(err=>{
 						console.log(err,"不存在");
@@ -108,13 +105,11 @@ Page({
 	// 跳转到详情页面
 	// 把id传到详情页
 	goDetail(e){
-		console.log(e,"dier");
 		db.collection('favorite').where({
 			_openid:this.data.openid
 		})
 		.get()
 		.then(res=>{
-			console.log(res,"第一");
 			var xlistid=res.data[0].xinlistid;
 			var xinid=this.data.dataList[e.currentTarget.dataset.index]._id;
 			let temp=new Set(xlistid);
@@ -123,9 +118,9 @@ Page({
 				var that=this
 				var detail=JSON.stringify(this.data.dataList[e.currentTarget.dataset.index])
 				var openid=JSON.stringify(this.data.openid)
-				console.log(detail);
+				var username=JSON.stringify(this.data.username)
 				wx.navigateTo({
-					url: '/pages/detail/detail?message=' + encodeURIComponent(detail) + '&openid='+ openid,
+					url: '/pages/detail/detail?message=' + encodeURIComponent(detail) + '&openid='+ openid+'&username='+username,
 				})
 			}else{
 				wx.showToast({

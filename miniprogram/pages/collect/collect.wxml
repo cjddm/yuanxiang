@@ -2,14 +2,16 @@
 <view wx:if="{{dl}}" class="ko">( 啷个还没有登陆撒~ 下拉刷新)</view>
 
 <view class="shoucang" bindtap="goDetail" data-index="{{index}}" wx:for="{{dataList}}" wx:key="id">
-  <image class="wing" src="/images/img/wing.png" mode="aspectFit"></image>
-	<image class="wing wing2" src="/images/img/wing2.png" mode="aspectFit"></image>
  	<view class="shoucang_card"> 
 			<view class="title">
 					{{item.to}}
 			</view>
-			<view class="author">
-					— {{item.from}}
+			<view class="value">
+				{{item.msg}}
 			</view>
+			<view class="author">
+					 	{{item.from}}
+			</view>
+		<image src="../../images/img/letter.png" class="img"></image>
  	</view>
 </view>

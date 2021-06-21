@@ -27,6 +27,8 @@ Page({
 	},
   //公开
   loginBtnClick: function (e) {
+		var date= +new Date
+		var bdtime=this.benditime()
 		db.collection('favorite').where({
 			userid:this.data.openid
 		})
@@ -50,7 +52,10 @@ Page({
 								userid:this.data.openid,
 								zIndex:'0',
 								gx:'公开',
-								sjid:sjnum
+								sjid:sjnum,
+								time:date,
+								bdtime:bdtime,
+								comment:[]
 							}
 						})
 						.then(res=>{
@@ -73,7 +78,10 @@ Page({
 										userid:this.data.openid,
 										zIndex:'0',
 										gx:'公开',
-										sjid:sjnum
+										sjid:sjnum,
+										time:date,
+										bdtime:bdtime,
+										comment:[]
 										}],
 										position:0
 									})
@@ -124,6 +132,8 @@ Page({
 	
 	// 私密
 	loginBtnClicktwo:function(){
+		var bdtime=this.benditime()
+		var date= +new Date
 		db.collection('favorite').where({
 			userid:this.data.openid
 		})
@@ -146,9 +156,11 @@ Page({
 										to:this.data.title,
 										userid:this.data.openid,
 										gx:'私密',
-										sjid:sjnum
+										sjid:sjnum,
+										time:date,
+										bdtime:bdtime
 										}],
-										position:0
+										position:0,
 									})
 								}
 							})
@@ -196,4 +208,16 @@ Page({
 				}
 				return res
 		},
+		// 获取本地时间
+		benditime:function(){
+			var date=new Date
+			var year = date.getFullYear();
+			var month = date.getMonth() + 1;
+			var dates = date.getDate();
+			var day = date.getDay();
+			var h = date.getHours();//时
+			var m = date.getUTCMinutes();//分
+			var s = date.getSeconds();//
+			return year + "." + month + "." + dates + "." + h + '.' + m
+		}
 })

@@ -68,6 +68,7 @@ Page({
             title: '请稍等喔',
           })
           db.collection('xinList')
+               .orderBy('time','desc')
                .limit(20)//返回限制数量为20
                .get()
                .then(res => {
