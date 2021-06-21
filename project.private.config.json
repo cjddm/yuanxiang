@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -21,6 +22,36 @@
           "name": "pages/detail/detail",
           "pathName": "pages/detail/detail",
           "query": "id=b00064a760a89a0019957d9f3e886e361",
+          "scene": null
+        },
+        {
+          "name": "pages/me/me",
+          "pathName": "pages/me/me",
+          "query": "pages/write/write",
+          "scene": null
+        },
+        {
+          "name": "pages/write/write",
+          "pathName": "pages/write/write",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/write/write",
+          "pathName": "pages/write/write",
+          "query": "id=o0gIm5Y4yDw2wNq9c1t0bcakLOT0",
+          "scene": null
+        },
+        {
+          "name": "pages/wd/wd",
+          "pathName": "pages/wd/wd",
+          "query": "id=o0gIm5Y4yDw2wNq9c1t0bcakLOT0",
+          "scene": null
+        },
+        {
+          "name": "pages/collect/collect",
+          "pathName": "pages/collect/collect",
+          "query": "",
           "scene": null
         }
       ]
